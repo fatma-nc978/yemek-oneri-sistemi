@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mx-auto px-4 mt-6 max-w-2xl">
+
+    <h2 class="text-2xl font-bold text-white mb-4">
+        Tarif Önerisi Al
+    </h2>
+
+    <form method="POST" action="{{ url_for('recommend_page') }}" class="space-y-4">
+
+        <!-- Malzemeler -->
+        <div>
+            <label class="text-gray-300 text-sm mb-1 block">
+                Elindeki malzemeler
+            </label>
+            <textarea name="ingredients" rows="4" class="form-control" placeholder="Örnek: domates, peynir, makarna"
+                required></textarea>
+        </div>
+
+        <!-- Tarif türü -->
+        <div>
+            <label class="text-gray-300 text-sm mb-1 block">
+                Tarif türü (opsiyonel)
+            </label>
+            <input type="text" name="recipe_type" class="form-control" placeholder="Örnek: çorba, tatlı">
+        </div>
+
+        <!-- Ek not -->
+        <div>
+            <label class="text-gray-300 text-sm mb-1 block">
+                Ek not (opsiyonel)
+            </label>
+            <textarea name="notes" rows="3" class="form-control"
+                placeholder="Örnek: pratik olsun, fırın kullanmak istemiyorum"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-red-main w-100 mt-3">
+            Öneri Al
+        </button>
+
+    </form>
+
+    <!-- MODEL SONUCU (şimdilik dummy) -->
+    {% if result_text %}
+    <div class="bg-[#1a1f24] rounded-xl p-4 mt-6 text-gray-300">
+        {{ result_text }}
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,1223 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.btn-red-main {
+    background: #f02b2b;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.btn-red-main:hover {
+    background: #f02b2b;
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.6);
+}
+
+button.btn-red-main {
+    all: unset;
+    background: #f02b2b;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.main-header {
+    position: relative;
+    z-index: 100;
+}
+
+.icon-profile-container,
+.profile-header-box {
+    position: relative;
+    z-index: 5000;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 60px;
+    /* ama kendi ikonunun hemen altında */
+    right: 0;
+    z-index: 99999 !important;
+    /* menü de en önde olsun */
+}
+
+/* === MODERN FOOD.COM TARZI HEADER === */
+.main-header {
+    width: 100%;
+    height: 70px;
+    background: #0d0f11;
+    display: flex;
+    overflow: visible;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    font-family: "Segoe UI", sans-serif;
+    letter-spacing: 1px;
+}
+
+.header-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    width: 55%;
+    display: flex;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    background: #1c1f23;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-form button {
+    width: 60px;
+    background: #f02b2b;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    transition: 0.2s;
+}
+
+.search-form button:hover {
+    background: #f02b2b;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-icon {
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.header-icon:hover {
+    transform: scale(1.25);
+    color: #f02b2b;
+}
+
+/* Navbar ikon container’ı */
+/* İkon container */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    justify-content: center;
+    padding: 8px 18px;
+}
+
+/* Link altındaki mavi çizgileri tamamen kapat */
+.nav-icons a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+}
+
+/* İkonlar için genel beyaz görünüm */
+.nav-icons img,
+.icon-bookmark img,
+.icon-like img,
+.icon-profile img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.85;
+    transition: 0.3s;
+    filter: invert(1);
+    /* 👈 siyah ikonları beyaza çevirir */
+}
+
+/* Kaydetme ikonu hover */
+.icon-bookmark:hover img {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 6px #E63946);
+    /* hem beyaz kalsın hem hover’da kırmızı parlasın */
+}
+
+/* Beğenme ikonu hover */
+.icon-like:hover img {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 6px #E63946);
+}
+
+/* Profil ikonu hover */
+.icon-profile:hover img {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 6px #E63946);
+}
+
+/* Arama ikonuna özel (minimal beyaz) */
+.search-btn img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.9;
+    transition: 0.3s ease;
+    filter: invert(1);
+    /* beyaz görünüm */
+}
+
+/* Arama hover efekti */
+.search-btn:hover img {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 6px #E63946);
+}
+
+/* Mobilde daha sıkı görünüm */
+@media (max-width: 768px) {
+    .nav-icons {
+        gap: 16px;
+    }
+
+    .nav-icons i {
+        font-size: 20px;
+    }
+}
+
+.lang-switch a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.filters {
+    margin: 20px 0;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.recipe-card {
+    min-width: 180px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.image-placeholder {
+    background: #ddd;
+    height: 120px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bölüm başlıkları */
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Yatay kaydırmalı satır */
+.recipe-row {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+/* Scrollbar biraz daha ince dursun */
+.recipe-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.recipe-row::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+/* Tarif kartı */
+.recipe-card {
+    min-width: 200px;
+    max-width: 220px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Görsel placeholder */
+.recipe-image-placeholder {
+    background: linear-gradient(135deg, #444, #666);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eee;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Kart içi */
+.recipe-info {
+    padding: 0.75rem 0.9rem 1rem;
+}
+
+.recipe-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+
+    /* 🔥 kritik alan */
+    min-height: 38px;
+    /* 2 satırlık sabit alan */
+    line-height: 1.3;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* max 2 satır */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+
+.recipe-meta {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 0;
+}
+
+.filter-box {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.recipe-card {
+    background: #111;
+    width: 230px;
+    border-radius: 14px;
+    overflow: hidden;
+    padding-bottom: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+    border: 1px solid #222;
+
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.recipe-card:hover {
+    transform: scale(1.07);
+    border-color: #f02b2b;
+}
+
+.recipe-img {
+    width: 100%;
+    height: 140px;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #666;
+}
+
+.recipe-info {
+    padding: 12px;
+}
+
+.recipe-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+
+.recipe-btn {
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    background: #f02b2b;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.recipe-btn:hover {
+    background: #f02b2b;
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.prev,
+.next {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* === MEGA MENU (TEK VE NET) === */
+.mega-btn {
+    background: #fff;
+    border-radius: 6px;
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.mega-column h4 {
+    margin-bottom: 10px;
+    color: #f02b2b;
+}
+
+.mega-column a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin-bottom: 6px;
+}
+
+.dropdown-btn {
+    padding: 10px 18px;
+    background: #202226;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: grid;
+}
+
+/* Sütunlar */
+.mega-column h4 {
+    color: #f02b2b;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.mega-column a {
+    display: block;
+    color: #f8f9fa;
+    text-decoration: none;
+    padding: 0.15rem 0;
+    font-size: 0.95rem;
+}
+
+.mega-column a:hover {
+    color: #ffc107;
+}
+
+/* Kartlara çakışmasını engellesin */
+nav {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Üst menü başlık yazıları */
+.top-menu .menu-link {
+    color: white !important;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 6px;
+    font-weight: 500;
+}
+
+/* Üst menü linkleri */
+.menu-link {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 18px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Hover alt çizgi efekti */
+.menu-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: #f02b2b;
+    /* Kırmızı alt çizgi */
+    transition: width 0.25s ease-in-out;
+}
+
+.menu-link:hover::after {
+    width: 60%;
+}
+
+.menu-link:hover {
+    color: #f02b2b;
+}
+
+.hero-banner {
+    width: 100%;
+    height: 350px;
+    background-image: url("/static/img/hero_ingredients.jpeg");
+    /* ✔ düzelttik */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    /* 👈 0.55 çok koyu, 0.30'a çektik */
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    background-color: #f02b2b;
+    padding: 12px 22px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #f02b2b;
+}
+
+.hero-banner.with-bg {
+    width: 100%;
+    min-height: 260px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url('/static/img/hero_ingredients.jpg');
+    background-size: contain;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 3rem;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.1));
+    color: #fff;
+}
+
+/* Popup arka plan */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Popup kart */
+.popup-content {
+    background: #1b1b1b;
+    padding: 26px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 0 14px rgba(230, 57, 70, 0.8);
+    position: relative;
+    color: #fff;
+    animation: popupFade 0.3s ease;
+}
+
+/* Kapatma butonu */
+.popup-content .close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #bbb;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 12px;
+}
+
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f02b2b;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.popup-content button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #f02b2b;
+}
+
+.popup-content a {
+    color: #f02b2b;
+    text-decoration: none;
+}
+
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Profil ikonu + dropdown container */
+.icon-profile-container {
+    position: relative;
+    display: inline-block;
+    z-index: 10000;
+    /* ikonu ve içindeki menüyü en üste çıkar */
+}
+
+/* Profil ikonu */
+.icon-profile img {
+    width: 26px;
+    height: 26px;
+    opacity: 0.9;
+    filter: invert(1);
+    /* beyaz yapar */
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-profile:hover img {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 8px rgba(230, 57, 70, 0.8));
+}
+
+/* Açılır Menü */
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* ikonun tam altı*/
+    right: 0;
+    background-color: black;
+    width: 160px;
+    border-radius: 10px;
+    padding: 6px 0;
+    z-index: 99999;
+    /* menüyü de en üste at */
+}
+
+.icon-profile-container:hover .profile-dropdown {
+    display: block;
+}
+
+/* Menü Linkleri */
+.profile-dropdown a {
+    display: block;
+    padding: 10px 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Browser’ın alt çizgi ve focus efektini kaldır */
+.icon-profile:focus,
+.profile-dropdown a:focus {
+    outline: none;
+    border-bottom: none;
+}
+
+/* PROFİL SAYFASI GENEL */
+.profile-page {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ÜSTTEKİ HESAP BİLGİSİ */
+.profile-header-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header-box h2 {
+    color: white;
+    font-size: 26px;
+    margin: 0;
+}
+
+.profile-header-box p {
+    color: #ddd;
+    font-size: 16px;
+    margin-top: 6px;
+}
+
+/* MENÜ BUTONLARI */
+.profile-menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.btn-profile {
+    background: #f02b2b;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-profile:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.8);
+}
+
+/* PROFİL SEKSİYONLARI */
+.profile-section {
+    margin-bottom: 40px;
+}
+
+.profile-section h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f02b2b;
+    padding-bottom: 6px;
+    width: fit-content;
+}
+
+/* İSTATİSTİK KARTLARI */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+}
+
+.stat-card h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #ffb3b3;
+}
+
+.stat-card p {
+    font-size: 20px;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+/* SON GÖRÜNTÜLENEN TARİFLER */
+.recent-recipes {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.recent-recipes::-webkit-scrollbar {
+    height: 6px;
+    background: transparent;
+}
+
+.recent-recipes::-webkit-scrollbar-thumb {
+    background: #E63946;
+    border-radius: 6px;
+}
+
+.recent-recipe-item {
+    min-width: 130px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.recent-recipe-item img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recent-recipe-item span {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* TARİF GRAFİK ALANI */
+#recipeChart {
+    width: 100%;
+    height: 260px;
+}
+
+/* ===== Profil / Hesap Kartı ===== */
+.account-card {
+    position: relative;
+    z-index: 1000;
+    /* diğer blokların üstüne çıksın */
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Kullanıcı adı + değiştir butonu aynı satırda */
+.user-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.user-line span {
+    font-weight: 600;
+}
+
+/* Minik değiştir butonları */
+.btn-edit {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-edit:hover {
+    background: #555;
+}
+
+/* Şifre değiştir butonunu alta al */
+.btn-password {
+    display: block;
+    width: 30%;
+    margin-top: 16px;
+    background: #f02b2b;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-password:hover {
+    background: #f02b2b;
+}
+
+.profile-header-box {
+    position: relative;
+    z-index: 1000;
+    /* ✅ en üstte dursun */
+}
+
+.profile-menu {
+    position: relative;
+    z-index: 1000;
+    /* ✅ overlay’i engellesin */
+}
+
+.profil-page,
+.profile-header-box {
+    position: relative;
+    z-index: 1000;
+    /* ✅ tüm profil header kısmı en üste çıksın */
+}
+
+/* Yorumlarım sayfası için yorum kartları */
+.comment-card {
+    background: #15171a;
+    color: white;
+    width: 80%;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.comment-card img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    opacity: 0.9;
+}
+
+.comment-card small {
+    opacity: 0.7;
+    font-size: 13px;
+}
+
+.comment-card button {
+    background: #f02b2b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    width: max-content;
+    transition: 0.3s;
+}
+
+.comment-card button:hover {
+    background: #e63946;
+}
+
+.btn-glow {
+    background-color: #f02b2b;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    /* Glow efektini azalttık ↓↓↓ */
+    box-shadow: 0 0 4px #f02b2b, 0 0 8px rgba(220, 38, 38, 0.4);
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-glow:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+    /* Hover glow da daha hafif */
+    box-shadow: 0 0 6px #f02b2b, 0 0 12px rgba(220, 38, 38, 0.5);
+}
+
+.btn-soft {
+    display: inline-block;
+    background-color: #f02b2b;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 3px #f02b2b, 0 0 8px rgba(220, 38, 38, 0.35);
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-soft:hover {
+    opacity: 0.92;
+    transform: scale(1.02);
+    box-shadow: 0 0 5px #f02b2b, 0 0 10px rgba(220, 38, 38, 0.45);
+}
+
+.recipe-card {
+    margin-right: 24px;
+    /* kartlar arası sağdan ekstra boşluk */
+}
+
+/* ==============================
+   ETİKET / FİLTRE ÇUBUĞU FIX
+   ============================== */
+
+.filters {
+    display: flex !important;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    position: relative;
+    z-index: 50;
+
+    background: #1c1f23;
+    padding: 14px 20px;
+    margin: 0 auto 24px auto;
+    border-radius: 10px;
+
+    max-width: 1200px;
+}
+
+/* Eğer filtreler link / buton ise */
+.filters a,
+.filters button {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.filters a:hover,
+.filters button:hover {
+    background: #f02b2b;
+    color: white;
+}
+
+/* ===== SUB NAV (ANA MENÜ ALT ÇUBUK) ===== */
+.sub-nav {
+    background: #000;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    position: relative;
+    z-index: 90;
+}
+
+.sub-menu {
+    display: flex;
+    gap: 30px;
+    padding: 12px 50px;
+    margin: 0;
+    list-style: none;
+}
+
+.sub-item {
+    position: relative;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    padding-bottom: 14px;
+}
+
+.sub-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
+}
+
+.sub-item:hover {
+    color: #f02b2b;
+}
+
+/* DROPDOWN */
+.sub-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 0;
+    left: 0;
+    background: #000;
+    min-width: 220px;
+    padding: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.sub-dropdown a {
+    display: block;
+    padding: 10px 16px;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sub-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+/* Hover açılma */
+.sub-item:hover .sub-dropdown {
+    display: block;
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.recipe-card {
+    flex: 0 0 auto;
+}
+
+.flash-msg {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hata rengi */
+.flash-error {
+    background-color: #d32f2f;
+}
+
+/* Başarı rengi */
+.flash-success {
+    background-color: #2e7d32;
+}

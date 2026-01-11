@@ -1,0 +1,133 @@
+.settings-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    width: 60%;
+    margin: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.settings-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+.settings-select {
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #111;
+    border: 1px solid #444;
+    color: white;
+    width: 40%;
+}
+
+.btn-danger {
+    background: #f02b2b;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    opacity: 0.8;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: black;
+}
+
+/* Toggle Switch Component */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background: #333;
+    transition: 0.3s;
+}
+
+.toggle .slider:before {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle input:checked+.slider {
+    background: #f02b2b;
+}
+
+.toggle input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+.settings-input {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #111;
+    color: white;
+    width: 45%;
+}
+
+.login-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-table th,
+.login-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 6px;
+    text-align: left;
+    color: #ddd;
+}
+
+.login-table th {
+    color: #fff;
+    font-weight: 600;
+}

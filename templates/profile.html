@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="profile-page">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div style="margin-bottom: 20px;">
+        {% for category, message in messages %}
+        <div class="flash-msg {{ 'flash-error' if category == 'error' else 'flash-success' }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="profile-header-box">
+        <h2 class="profile-username">{{ user.username }}</h2>
+        <p class="profile-email">{{ user.email }}</p>
+    </div>
+
+    <div class="profile-menu">
+        <a href="{{ url_for('account') }}" class="btn-red-main">Hesabım</a>
+        <a href="{{ url_for('comments_page') }}" class="btn-red-main">Yorumlarım</a>
+        <a href="{{ url_for('puanlamalar_page') }}" class="btn-red-main">Puanlamalarım</a>
+        <a href="{{ url_for('settings') }}" class="btn-red-main">Ayarlar</a>
+        <a href="{{ url_for('security') }}" class="btn-red-main">Güvenlik</a>
+    </div>
+
+    <div
+        style="margin-top: 25px; padding: 20px; background-color: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.2rem;">🚀 Öneri Motorunu Yenile</h3>
+        <p style="color: #bbb; font-size: 0.9rem; margin-bottom: 15px;">
+            Son beğeni ve yorumlarına göre sana özel önerileri güncellemek için tıkla.
+        </p>
+
+        <form action="{{ url_for('update_recommendations') }}" method="POST">
+            <button type="submit"
+                style="width: 100%; padding: 12px; background-color: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: background 0.3s;">
+                🔄 Önerilerimi Şimdi Güncelle
+            </button>
+        </form>
+    </div>
+
+    <div class="profile-section" style="margin-top: 30px;">
+        <h3>Tarif İstatistiklerim</h3>
+
+        <div class="stats-cards">
+            <div class="stat-card">
+                <h4>Kaydedilen</h4>
+                <p>{{ saved_count | default(0) }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h4>Beğenilen</h4>
+                <p>{{ liked_count | default(0) }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h4>Yorum Sayısı</h4>
+                <p>{{ comment_count | default(0) }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

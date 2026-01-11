@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-white mb-4">
+    “{{ query }}” için arama sonuçları
+</h2>
+
+{% if results %}
+<div class="space-y-4">
+    {% for r in results %}
+    <div class="bg-[#111] p-4 rounded-lg flex justify-between items-center">
+        <div>
+            <h3 class="text-lg font-semibold text-white">
+                {{ r.name }}
+            </h3>
+            <p> </p>
+        </div>
+
+        <a href="{{ url_for('tarif_detay', id=r.id) }}" class="btn-red-main">
+            Tarife Git
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="text-gray-400">
+    Sonuç bulunamadı.
+</p>
+{% endif %}
+
+{% endblock %}

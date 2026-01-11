@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container profile-page account-page">
+
+    <div class="profile-header-card">
+        <h2>{{ user.username }}</h2>
+        <p>{{ user.email }}</p>
+    </div>
+
+    <h3 class="section-title">Hesap Bilgileri</h3>
+
+    <div class="account-info-card">
+
+        <!-- Kullanıcı adı -->
+        <form action="{{ url_for('update_username') }}" method="POST" class="user-line">
+            <span>Kullanıcı adı</span>
+            <input type="text" name="username" placeholder="{{ user.username }}" required>
+            <button type="submit" class="btn-edit">Değiştir</button>
+        </form>
+
+        <!-- Email -->
+        <form action="{{ url_for('update_email') }}" method="POST" class="user-line">
+            <span>E-posta</span>
+            <input type="email" name="email" placeholder="{{ user.email }}" required>
+            <button type="submit" class="btn-edit">Değiştir</button>
+        </form>
+
+        <!-- Şifre -->
+        <a href="{{ url_for('security') }}" class="btn-password">
+            Şifreyi Değiştir
+        </a>
+
+        <p class="account-meta">
+            <strong>Kayıt Tarihi:</strong> {{ user.created_at }}<br>
+            <strong>Son Giriş:</strong> {{ user.last_login or "—" }}
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

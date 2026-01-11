@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mx-auto px-4 mt-6 max-w-2xl">
+
+    <!-- Beğeni sayısı -->
+    <p class="text-gray-400 text-sm mb-3">
+        Beğenilen Tarif Sayısı: {{ liked_recipes|length }}
+    </p>
+
+    <!-- Kart listesi başlığı -->
+    <h2 class="text-2xl font-bold text-white mb-5">Beğenilen Tarifler</h2>
+
+    <div class="space-y-4">
+
+        {% if liked_recipes %}
+        {% for r in liked_recipes %}
+        <div class="bg-[#1a1f24] shadow-lg rounded-2xl p-4 flex justify-between items-center">
+
+            <div class="pr-3">
+                <h3 class="text-lg font-semibold text-white">
+                    {{ r.name }}
+                </h3>
+
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ r.description }}
+                </p>
+
+                <p class="text-gray-400 text-sm">
+                    Beğenme Tarihi: {{ r.liked_at }}
+                </p>
+
+            </div>
+
+            <!-- Tarife git -->
+            <a href="{{ url_for('tarif_detay', id=r.id) }}" class="btn-glow">
+                Tarife Git
+            </a>
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="text-gray-300 text-sm">
+            Henüz favori / beğeni yok.
+        </p>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

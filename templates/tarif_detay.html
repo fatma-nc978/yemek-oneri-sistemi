@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-7xl mx-auto px-8 mt-6">
+
+
+    <!-- BAŞLIK + AKSİYONLAR -->
+    <!-- BAŞLIK + BEĞEN / KAYDET -->
+    <!-- BAŞLIK + AKSİYONLAR -->
+    <!-- BAŞLIK + SAĞ AKSİYONLAR -->
+    <div class="grid grid-cols-[1fr_auto] items-start w-full mb-6 gap-6">
+
+        <!-- SOL: TARİF ADI + AÇIKLAMA -->
+        <div>
+            <h1 class="text-3xl font-bold text-white">
+                {{ recipe.name }}
+            </h1>
+            <p class="text-gray-400 text-sm mt-1">
+                {{ recipe.description }}
+            </p>
+        </div>
+
+        <!-- SAĞ: BEĞEN / KAYDET (SAYFANIN EN SAĞ ÜSTÜ) -->
+        {% if session.user_id %}
+        <div class="flex flex-col gap-3 items-end">
+            <form method="POST" action="{{ url_for('toggle_favorite', recipe_id=recipe.id) }}">
+                <button class="btn-glow px-5 py-2 flex items-center gap-2 whitespace-nowrap">
+                    ❤️ {% if is_favorite %}Beğenildi{% else %}Beğen{% endif %}
+                </button>
+            </form>
+
+            <form method="POST" action="{{ url_for('toggle_saved', recipe_id=recipe.id) }}">
+                <button class="btn-glow px-5 py-2 flex items-center gap-2 whitespace-nowrap">
+                    📌 {% if is_saved %}Kaydedildi{% else %}Kaydet{% endif %}
+                </button>
+            </form>
+        </div>
+        {% endif %}
+
+    </div>
+
+
+
+    <!-- META -->
+    <div class="flex flex-wrap gap-6 text-sm text-gray-400 mt-4 mb-6 items-center">
+        {% if recipe.minutes %}
+        <span class="flex items-center gap-1">⏱ {{ recipe.minutes }} dk</span>
+        {% endif %}
+
+        <span class="flex items-center gap-1">🧺 {{ recipe.n_ingredients }} malzeme</span>
+        <span class="flex items-center gap-1">📋 {{ recipe.n_steps }} adım</span>
+
+        {% if avg_rating is not none %}
+        <span class="flex items-center gap-1 text-yellow-400 font-medium">
+            ⭐ {{ avg_rating }}
+        </span>
+        {% else %}
+        <span class="flex items-center gap-1 text-gray-500">
+            ⭐ Puan yok
+        </span>
+        {% endif %}
+
+    </div>
+
+    <div>
+        <p> </p>
+    </div>
+    <!-- ETİKETLER -->
+    {% if recipe.tags %}
+    <div class="mb-6">
+        <p class="text-sm text-gray-400 mb-2"><b>Tarif etiketleri:</b></p>
+        <div class="flex flex-wrap gap-2">
+            {% for tag in recipe.tags %}
+            <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- INGREDIENTS + STEPS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <div class="bg-[#111] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-3">🧺 Malzemeler</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+                {% for ing in recipe.ingredients %}
+                <li>• {{ ing }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="bg-[#111] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-3">🍳 Yapılışı</h3>
+            <ol class="list-decimal list-inside space-y-3 text-sm text-gray-300">
+                {% for step in recipe.steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <!-- PUANLAMA -->
+    {% if session.user_id %}
+    <div class="mt-8">
+        <p class="text-sm mb-2">Bu tarife puan ver:</p>
+        <form method="POST" action="{{ url_for('rate_recipe', recipe_id=recipe.id) }}" class="flex gap-2">
+            {% for i in range(1,6) %}
+            <button name="rating" value="{{ i }}"
+                class="px-3 py-1 rounded {{ 'bg-yellow-500' if my_rating and my_rating >= i else 'bg-gray-700' }}">
+                ⭐
+            </button>
+            {% endfor %}
+        </form>
+    </div>
+    {% endif %}
+    <div>
+        <p> </p>
+    </div>
+    <!-- YORUMLAR -->
+    <div class="mt-12">
+        <h3 class="text-xl font-semibold mb-4">Yorumlar</h3>
+
+        {% if comments_list %}
+        <div class="space-y-4 mb-6">
+            {% for c in comments_list %}
+            <div class="bg-[#111] p-4 rounded-lg">
+
+                <div class="comment-header">
+                    <strong>{{ c.username }}</strong>
+                    • {{ c.date }}
+                    {% if c.rating %}
+                    • ⭐ {{ c.rating }}
+                    {% endif %}
+                </div>
+                <p>{{ c.comment }}</p>
+
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-sm text-gray-400 mb-4">Henüz yorum yok.</p>
+        {% endif %}
+
+        {% if session.user_id %}
+        <form method="POST" action="{{ url_for('add_comment', recipe_id=recipe.id) }}">
+            <textarea name="comment" required class="w-full bg-[#111] rounded-lg p-3 text-sm text-black mb-2"
+                placeholder="Yorumunu yaz..."></textarea>
+            <p> </p>
+            <button class="btn-glow px-5 py-2">Yorum Yap</button>
+        </form>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mx-auto px-4 mt-6 max-w-3xl">
+
+    <!-- Sayfa başlığı -->
+    <h2 class="text-2xl font-bold text-white mb-5">
+        Ayarlar
+    </h2>
+
+    <div class="space-y-6">
+
+        <!-- ================= HESAP TERCİHLERİ ================= -->
+        <div class="bg-[#14181f] p-4 rounded-xl shadow-md">
+            <h3 class="text-lg font-semibold text-white mb-3">
+                Hesap Tercihleri
+            </h3>
+
+            <div class="settings-row">
+                <span>Tema:</span>
+                <select class="settings-select">
+                    <option>Dark</option>
+                    <option>Light</option>
+                    <option>Sistem</option>
+                </select>
+            </div>
+
+            <div class="settings-row">
+                <span>Dil:</span>
+                <select class="settings-select">
+                    <option>Türkçe</option>
+                    <option>English</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ================= BİLDİRİM AYARLARI ================= -->
+        <div class="bg-[#14181f] p-4 rounded-xl shadow-md">
+            <h3 class="text-lg font-semibold text-white mb-3">
+                Bildirim Ayarları
+            </h3>
+
+            <div class="settings-row">
+                <span>Yeni Tarif Önerileri:</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-row">
+                <span>Beğeni / Yoruma Cevap:</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-row">
+                <span>E-posta Bildirimleri:</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- ================= GİZLİLİK ================= -->
+        <div class="bg-[#14181f] p-4 rounded-xl shadow-md">
+            <h3 class="text-lg font-semibold text-white mb-3">
+                Gizlilik & Veri Tercihleri
+            </h3>
+
+            <div class="settings-row">
+                <span>Yorumlarımı Göster:</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-row">
+                <span>Profil Bilgilerimi Göster:</span>
+                <select class="settings-select">
+                    <option>Herkese</option>
+                    <option>Sadece Bana</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ================= OTURUM ================= -->
+        <div class="bg-[#14181f] p-4 rounded-xl shadow-md">
+            <h3 class="text-lg font-semibold text-white mb-3">
+                Oturum & Güvenlik
+            </h3>
+
+            <div class="settings-row">
+                <span>Oturumu açık tut (Beni hatırla):</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="flex gap-3 mt-3">
+                <a href="{{ url_for('logout') }}" class="btn-red-main">
+                    Hesaptan Çıkış Yap
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

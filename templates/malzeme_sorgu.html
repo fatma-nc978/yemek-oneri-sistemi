@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-4 text-white">
+    Elinizdeki Malzemeleri Girin
+</h2>
+
+<form method="POST" class="ingredient-form">
+    <input type="text" name="ingredients" placeholder="Domates, peynir, makarna..." class="form-control my-3"
+        required />
+
+    <button type="submit" class="btn btn-warning w-100">
+        Tarifleri Göster
+    </button>
+</form>
+
+{% if recipes is not none %}
+
+{% if recipes %}
+<p> </p>
+<h2 class="text-xl font-bold text-white mb-4 mt-6">
+    Uygun Tarifler
+</h2>
+
+<div class="space-y-6">
+    {% for r in recipes %}
+    <div class="bg-[#1a1f24] shadow-lg rounded-2xl p-4 flex justify-between items-center gap-5">
+
+        <div class="pr-3">
+            <h3 class="text-lg font-semibold text-white">
+                {{ r.name }}
+            </h3>
+
+            <p class="text-gray-300 text-sm mt-1">
+                {{ r.description }}
+            </p>
+
+            {% if r.tags %}
+            <div class="flex flex-wrap gap-2 mt-2">
+                {% for tag in r.tags %}
+                <span class="bg-gray-700 text-gray-200 text-[11px] px-2 py-1 rounded-full">
+                    {{ tag }}
+                </span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+        <p> </p>
+        <p> </p>
+        <a href="{{ url_for('tarif_detay', id=r.id) }}" class="btn-red-main">
+            Tarife Git
+        </a>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<p class="text-gray-400 text-sm mt-4">
+    Girilen malzemelere uygun tarif bulunamadı.
+</p>
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

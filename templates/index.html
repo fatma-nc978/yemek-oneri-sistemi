@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero-banner">
+    <div class="hero-content">
+        <h2>Elinizdeki Malzemelerle Ne Yapabilirsiniz?</h2>
+        <form action="{{ url_for('malzeme_sorgu') }}" method="POST">
+            <input type="text" name="ingredients" placeholder="Domates, peynir, makarna..." class="form-control my-3" />
+            <button type="submit" class="hero-btn">Tarifleri Göster</button>
+        </form>
+    </div>
+</div>
+
+<!-- ================= HİBRİT ================= -->
+<h2 class="section-title">Öneriler</h2>
+
+<div class="slider-container">
+    <button class="prev" onclick="slideLeft('hybrid-slider')">‹</button>
+
+    <div class="slider" id="hybrid-slider">
+        {% for r in hybrid_recipes %}
+        <div class="recipe-card">
+
+            <div class="recipe-img">
+                <img src="{{ url_for('static', filename='img/placeholder.jpg') }}">
+            </div>
+            <div class="recipe-title">
+                {{ r.name }}
+            </div>
+
+            <!-- 📊 BİLGİLER -->
+            <div class="recipe-meta flex flex-col items-center gap-1 text-xs text-gray-300 mt-2">
+
+                <span class="flex items-center gap-1">
+                    ⏱ {{ r.minutes or "-" }} dk
+                </span>
+
+                <span class="flex items-center gap-1">
+                    🧺 {{ r.n_ingredients or "-" }} malzeme
+                </span>
+
+                {% if r.avg_rating is not none %}
+                <span class="flex items-center gap-1 text-yellow-400">
+                    ⭐ {{ r.avg_rating }}
+                </span>
+                {% else %}
+                <span class="flex items-center gap-1 text-gray-500">
+                    ⭐ -
+                </span>
+                {% endif %}
+
+
+            </div>
+
+            <!-- 🔴 BUTON (AYRI!) -->
+            <a class="recipe-btn mt-3" href="{{ url_for('tarif_detay', id=r.id) }}">
+                Tarife Git
+            </a>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <button class="next" onclick="slideRight('hybrid-slider')">›</button>
+</div>
+
+
+<!-- ================= CONTENT ================= -->
+<h2 class="section-title">Daha önceki tercihlerine dayanarak</h2>
+
+{% if content_recipes %}
+<div class="slider-container">
+    <button class="prev" onclick="slideLeft('content-slider')">‹</button>
+
+    <div class="slider" id="content-slider">
+        {% for r in content_recipes %}
+        <div class="recipe-card">
+
+            <div class="recipe-img">
+                <img src="{{ url_for('static', filename='img/placeholder.jpg') }}">
+            </div>
+            <div class="recipe-title">
+                {{ r.name }}
+            </div>
+
+            <!-- 📊 BİLGİLER -->
+            <div class="recipe-meta flex flex-col items-center gap-1 text-xs text-gray-300 mt-2">
+
+                <span class="flex items-center gap-1">
+                    ⏱ {{ r.minutes or "-" }} dk
+                </span>
+
+                <span class="flex items-center gap-1">
+                    🧺 {{ r.n_ingredients or "-" }} malzeme
+                </span>
+
+                {% if r.avg_rating is not none %}
+                <span class="flex items-center gap-1 text-yellow-400">
+                    ⭐ {{ r.avg_rating }}
+                </span>
+                {% else %}
+                <span class="flex items-center gap-1 text-gray-500">
+                    ⭐ -
+                </span>
+                {% endif %}
+
+
+            </div>
+
+            <!-- 🔴 BUTON (AYRI!) -->
+            <a class="recipe-btn mt-3" href="{{ url_for('tarif_detay', id=r.id) }}">
+                Tarife Git
+            </a>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <button class="next" onclick="slideRight('content-slider')">›</button>
+</div>
+{% endif %}
+
+
+<!-- ================= USER-BASED ================= -->
+<h2 class="section-title">Benzer kişilerden öneriler</h2>
+
+{% if user_cf_recipes %}
+<div class="slider-container">
+    <button class="prev" onclick="slideLeft('user-slider')">‹</button>
+
+    <div class="slider" id="user-slider">
+        {% for r in user_cf_recipes %}
+        <div class="recipe-card">
+
+            <div class="recipe-img">
+                <img src="{{ url_for('static', filename='img/placeholder.jpg') }}">
+            </div>
+            <div class="recipe-title">
+                {{ r.name }}
+            </div>
+
+            <!-- 📊 BİLGİLER -->
+            <div class="recipe-meta flex flex-col items-center gap-1 text-xs text-gray-300 mt-2">
+
+                <span class="flex items-center gap-1">
+                    ⏱ {{ r.minutes or "-" }} dk
+                </span>
+
+                <span class="flex items-center gap-1">
+                    🧺 {{ r.n_ingredients or "-" }} malzeme
+                </span>
+
+                {% if r.avg_rating is not none %}
+                <span class="flex items-center gap-1 text-yellow-400">
+                    ⭐ {{ r.avg_rating }}
+                </span>
+                {% else %}
+                <span class="flex items-center gap-1 text-gray-500">
+                    ⭐ -
+                </span>
+                {% endif %}
+
+
+            </div>
+
+            <!-- 🔴 BUTON (AYRI!) -->
+            <a class="recipe-btn mt-3" href="{{ url_for('tarif_detay', id=r.id) }}">
+                Tarife Git
+            </a>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <button class="next" onclick="slideRight('user-slider')">›</button>
+</div>
+{% else %}
+<p style="opacity:.7;">Benzer kullanıcı verisi henüz yok.</p>
+{% endif %}
+
+
+<!-- ================= POPÜLER ================= -->
+<h2 class="section-title">Popüler tarifler - Tüm zamanların en yüksek puanlı tarifleri</h2>
+
+<div class="slider-container">
+    <button class="prev" onclick="slideLeft('popular-slider')">‹</button>
+
+    <div class="slider" id="popular-slider">
+        {% for r in popular_recipes %}
+        <div class="recipe-card">
+
+            <div class="recipe-img">
+                <img src="{{ url_for('static', filename='img/placeholder.jpg') }}">
+            </div>
+            <div class="recipe-title">
+                {{ r.name }}
+            </div>
+
+            <!-- 📊 BİLGİLER -->
+            <div class="recipe-meta flex flex-col items-center gap-1 text-xs text-gray-300 mt-2">
+
+                <span class="flex items-center gap-1">
+                    ⏱ {{ r.minutes or "-" }} dk
+                </span>
+
+                <span class="flex items-center gap-1">
+                    🧺 {{ r.n_ingredients or "-" }} malzeme
+                </span>
+
+                {% if r.avg_rating is not none %}
+                <span class="flex items-center gap-1 text-yellow-400">
+                    ⭐ {{ r.avg_rating }}
+                </span>
+                {% else %}
+                <span class="flex items-center gap-1 text-gray-500">
+                    ⭐ -
+                </span>
+                {% endif %}
+
+
+            </div>
+
+            <!-- 🔴 BUTON (AYRI!) -->
+            <a class="recipe-btn mt-3" href="{{ url_for('tarif_detay', id=r.id) }}">
+                Tarife Git
+            </a>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <button class="next" onclick="slideRight('popular-slider')">›</button>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mx-auto px-4 mt-6 max-w-2xl">
+
+    <!-- Üstte puanlanan tarif sayısı -->
+    <p class="text-gray-400 text-sm mb-3">
+        Puan Verilmiş Tarif Sayısı: {{ rating_count }}
+    </p>
+
+    {% if rated_recipes %}
+    {% for r in rated_recipes %}
+    <h3>{{ r.name }}</h3>
+    <p>Verdiğin Puan: {{ r.rating }}</p>
+    <p>Tarih: {{ r.rated_at }}</p>
+    <a href="{{ url_for('tarif_detay', id=r.id) }}" class="btn-soft text-xs"> Tarifi Gör </a>
+    <p> </p>
+    <p> </p>
+    {% endfor %}
+    {% else %}
+    <p>Henüz hiç tarif puanlamadın.</p>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">❤️ En Çok Beğenilen Tarifler</h2>
+
+<div class="recipe-list">
+
+    {% for r in recipes %}
+    <div class="recipe-item">
+
+        <h3>{{ r.name }}</h3>
+
+        <div class="recipe-meta" style="text-align:left; margin-top:4px;">
+            ⏱ {{ r.minutes }} dk
+            &nbsp;&nbsp;🧺 {{ r.n_ingredients }} malzeme
+            &nbsp;&nbsp;❤️ {{ r.fav_count }} beğeni
+        </div>
+
+        <a href="{{ url_for('tarif_detay', id=r.id) }}" class="btn btn-danger btn-sm mt-2">
+            Tarife Git
+        </a>
+        <p> </p>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
